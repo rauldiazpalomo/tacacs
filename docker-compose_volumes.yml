@@ -1,0 +1,16 @@
+version: "2"
+services:
+ tacacs:
+  image: tacacs_plus:1
+  container_name: TACACS_PLUS
+  restart: unless-stopped
+  ports:
+    - "49:49"
+  volumes:
+      - data:/etc/tac_plus
+      - log:/var/log/tacacs
+      - /etc/timezone:/etc/timezone
+      - /etc/localtime:/etc/localtime
+volumes:
+ data:
+ log:
